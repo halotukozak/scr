@@ -1,0 +1,37 @@
+package hardware
+
+public	
+	with SEI;
+			
+	processor MainProcessor
+		features
+			bus_access: requires bus access SerialBus;
+		properties
+			SEI::MIPSCapacity => 2200.0mips; -- (2.2gips);
+			SEI::GrossWeight => 0.1kg;
+	end MainProcessor;
+	
+	processor implementation MainProcessor.impl
+	end MainProcessor.impl;
+		
+	memory Ram
+		features
+			bus_access: requires bus access SerialBus;
+		properties
+			SEI::GrossWeight => 0.025kg;
+	end Ram;
+	
+	memory implementation Ram.impl
+	end Ram.impl;
+	
+	
+	bus SerialBus 
+		properties
+			SEI::GrossWeight => 0.075kg;
+			SEI::BandWidthCapacity => 10.0 Mbps;
+	end SerialBus;
+	
+	bus implementation SerialBus.impl
+	end SerialBus.impl;
+	 	
+end hardware;

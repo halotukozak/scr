@@ -1,0 +1,99 @@
+package ticket_machine_system
+
+public
+
+with hardware, custom_types;
+with SEI;
+
+system TicketVendingSystem
+features
+  ticket_dispensed: out event port;
+  ticket_request: in event data port custom_types::TicketRequest;
+  this_bus: requires bus access hardware::SerialBus;
+end TicketVendingSystem;
+
+system implementation TicketVendingSystem.impl
+subcomponents
+  this_printer: device TicketPrinter.impl;
+  this_cash_acceptor: device CashAcceptor.impl;
+  this_controller: process TicketVendingController.impl;
+
+connections
+  printer_connection_request: port this_controller.print_ticket -> this_printer.print_ticket;
+  printer_connection_done: port this_printer.done -> this_controller.ticket_printed;
+  cash_acceptor_connection_request: port this_controller.accept_cash -> this_cash_acceptor.accept_cash;
+  cash_acceptor_connection_done: port this_cash_acceptor.done -> this_controller.cash_accepted;
+  ticket_request_connection: port ticket_request -> this_controller.ticket_request;
+  ticket_dispensed_connection: port this_controller.ticket_dispensed -> ticket_dispensed;
+
+  bus_printer: bus access this_bus -> this_printer.bus_access;
+  bus_cash_acceptor: bus access this_bus -> this_cash_acceptor.bus_access;
+end TicketVendingSystem.impl;
+
+process TicketVendingController
+features
+  ticket_request: in event data port custom_types::TicketRequest;
+  print_ticket: out event data port custom_types::TicketInfo;
+  ticket_printed: in event port;
+  accept_cash: out event data port custom_types::CashAmount;
+  cash_accepted: in event port;
+  ticket_dispensed: out event port;
+end TicketVendingController;
+
+process implementation TicketVendingController.impl
+subcomponents
+  this_thread_vend_ticket: thread VendTicket.impl;
+connections
+  ticket_request_connection: port ticket_request -> this_thread_vend_ticket.ticket_request;
+  print_ticket_connection: port this_thread_vend_ticket.print_ticket -> print_ticket;
+  ticket_printed_connection: port ticket_printed -> this_thread_vend_ticket.ticket_printed;
+  accept_cash_connection: port this_thread_vend_ticket.accept_cash -> accept_cash;
+  cash_accepted_connection: port cash_accepted -> this_thread_vend_ticket.cash_accepted;
+  ticket_dispensed_connection: port this_thread_vend_ticket.ticket_dispensed -> ticket_dispensed;
+end TicketVendingController.impl;
+
+thread VendTicket
+features
+  ticket_request: in event data port custom_types::TicketRequest;
+  print_ticket: out event data port custom_types::TicketInfo;
+  ticket_printed: in event port;
+  accept_cash: out event data port custom_types::CashAmount;
+  cash_accepted: in event port;
+  ticket_dispensed: out event port;
+properties
+  Dispatch_Offset => 2ms;
+  Deadline => 400ms;
+  Period => 100ms;
+  Compute_Execution_Time => 10ms..20ms;
+end VendTicket;
+
+thread implementation VendTicket.impl
+end VendTicket.impl;
+
+device TicketPrinter
+features
+  print_ticket: in event data port custom_types::TicketInfo;
+  done: out event port;
+  bus_access: requires bus access hardware::SerialBus;
+  properties
+    SEI::GrossWeight => 1.0kg;
+    Dispatch_Protocol => Aperiodic;
+end TicketPrinter;
+
+device implementation TicketPrinter.impl
+end TicketPrinter.impl;
+
+device CashAcceptor
+features
+  accept_cash: in event data port custom_types::CashAmount;
+  done: out event port;
+  bus_access: requires bus access hardware::SerialBus;
+  properties
+    SEI::GrossWeight => 1.0kg;
+    Dispatch_Protocol => Aperiodic;
+end CashAcceptor;
+
+device implementation CashAcceptor.impl
+end CashAcceptor.impl;
+
+end ticket_machine_system;

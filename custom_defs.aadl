@@ -1,0 +1,51 @@
+package custom_types
+
+public
+
+with Data_Model;
+with Base_Types;
+
+data TicketRequest
+properties
+  Data_Model::Enumerators => ("Single", "Return", "DayPass", "Weekly", "Monthly");
+  Data_Model::base_type => (classifier (Base_Types::Integer));
+  Data_Size => 1 Bytes;
+end TicketRequest;
+
+data TicketInfo
+properties
+  Data_Model::base_type => (classifier (Base_Types::Integer));
+  Data_Size => 2 Bytes;
+end TicketInfo;
+
+data CashAmount
+properties
+  Data_Model::base_type => (classifier (Base_Types::Integer));
+  Data_Model::Integer_Range => 0 .. 10000;
+  Data_Model::Measurement_Unit => "PLN";
+  Data_Size => 2 Bytes;
+end CashAmount;
+
+data StockLevel
+properties
+  Data_Model::base_type => (classifier (Base_Types::Integer));
+  Data_Model::Integer_Range => 0 .. 1000;
+  Data_Size => 2 Bytes;
+end StockLevel;
+
+data CashLevel
+properties
+  Data_Model::base_type => (classifier (Base_Types::Integer));
+  Data_Model::Integer_Range => 0 .. 10000;
+  Data_Model::Measurement_Unit => "PLN";
+  Data_Size => 2 Bytes;
+end CashLevel;
+
+data ButtonType
+properties
+  Data_Model::Enumerators => ("A","B","C","D","E","F","G","H","I","J","K","L");
+  Data_Model::base_type => (classifier (Base_Types::Integer));
+  Data_Size => 1 Bytes;
+end ButtonType;
+
+end custom_types;
