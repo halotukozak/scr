@@ -2,75 +2,9 @@ package main_system
 
 public
 
-with ticket_machine_system, hardware;
+with hardware;
 with custom_types;
 with SEI;
-
----------------------------------------------------------
-
-system TicketVendingMachineSystem
-end TicketVendingMachineSystem;
-
-system implementation TicketVendingMachineSystem.impl
-subcomponents
-  -- sensory i urządzenia
-  this_ticket_stock_sensor: device TicketStockSensor.impl;
-  this_cash_level_sensor: device CashLevelSensor.impl;
-
-  -- interfejsy użytkownika
-  this_buttons: device Buttons.impl;
-  this_screen: device Screen.impl;
-
-  -- logika automatu biletowego
-  this_ticket_vending_machine: system ticket_machine_system::TicketVendingSystem.impl;
-  this_controller: process Controller.impl;
-
-  -- hardware
-  this_bus: bus hardware::SerialBus.impl;
-  this_processor: processor hardware::MainProcessor.impl;
-  this_ram: memory hardware::Ram.impl;
-
-connections
-  ticket_stock_conn: port this_ticket_stock_sensor.level -> this_controller.ticket_stock_level;
-  cash_level_conn: port this_cash_level_sensor.level -> this_controller.cash_level;
-  buttons_button_pressed_conn: port this_buttons.button_pressed -> this_controller.button_pressed;
-  screen_ticket_dispensed_conn: port this_controller.ticket_dispensed_out -> this_screen.ticket_dispensed;
-  screen_ticket_stock_low_conn: port this_controller.ticket_stock_low -> this_screen.ticket_stock_low;
-  vendingmachine_ticket_request_conn: port this_controller.ticket_request -> this_ticket_vending_machine.ticket_request;
-  vendingmachine_ticket_dispensed_conn: port this_ticket_vending_machine.ticket_dispensed -> this_controller.ticket_dispensed_in;
-
-  -- bus connections
-  bus_buttons: bus access this_bus -> this_buttons.bus_access;
-  bus_screen: bus access this_bus -> this_screen.bus_access;
-  bus_ticket_stock_sensor: bus access this_bus -> this_ticket_stock_sensor.bus_access;
-  bus_cash_level_sensor: bus access this_bus -> this_cash_level_sensor.bus_access;
-  bus_processor: bus access this_bus -> this_processor.bus_access;
-  bus_ram: bus access this_bus -> this_ram.bus_access;
-  bus_ticket_vending_machine: bus access this_bus -> this_ticket_vending_machine.this_bus;
-
-properties
-  Actual_Memory_Binding => (reference (this_ram)) applies to this_ticket_stock_sensor;
-  Actual_Memory_Binding => (reference (this_ram)) applies to this_cash_level_sensor;
-  Actual_Memory_Binding => (reference (this_ram)) applies to this_buttons;
-  Actual_Memory_Binding => (reference (this_ram)) applies to this_screen;
-  Actual_Memory_Binding => (reference (this_ram)) applies to this_processor;
-
-  Actual_Processor_Binding => (reference (this_processor)) applies to this_ticket_stock_sensor;
-  Actual_Processor_Binding => (reference (this_processor)) applies to this_cash_level_sensor;
-  Actual_Processor_Binding => (reference (this_processor)) applies to this_buttons;
-  Actual_Processor_Binding => (reference (this_processor)) applies to this_screen;
-  Actual_Processor_Binding => (reference (this_processor)) applies to this_controller.this_thread_read_levels;
-  Actual_Processor_Binding => (reference (this_processor)) applies to this_controller.this_thread_read_buttons;
-
-  Actual_Connection_Binding => (reference (this_bus)) applies to ticket_stock_conn;
-  Actual_Connection_Binding => (reference (this_bus)) applies to cash_level_conn;
-  Actual_Connection_Binding => (reference (this_bus)) applies to buttons_button_pressed_conn;
-  Actual_Connection_Binding => (reference (this_bus)) applies to screen_ticket_dispensed_conn;
-  Actual_Connection_Binding => (reference (this_bus)) applies to screen_ticket_stock_low_conn;
-  Actual_Connection_Binding => (reference (this_bus)) applies to vendingmachine_ticket_request_conn;
-  Actual_Connection_Binding => (reference (this_bus)) applies to vendingmachine_ticket_dispensed_conn;
-
-end TicketVendingMachineSystem.impl;
 
 ---------------------------------------------------------
 

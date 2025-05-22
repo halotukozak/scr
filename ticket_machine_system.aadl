@@ -41,7 +41,7 @@ features
 end TicketVendingController;
 
 process implementation TicketVendingController.impl
-subcomponents
+	subcomponents
   this_thread_vend_ticket: thread VendTicket.impl;
 connections
   ticket_request_connection: port ticket_request -> this_thread_vend_ticket.ticket_request;
