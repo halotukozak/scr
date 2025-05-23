@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="ASCII"?>
 <diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="750bb7d2-0619-4729-9d09-966abf1cce0a" manual="true">
+    <element uuid="ee9fee6b-1798-4d63-9577-9715f1ccb235" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>bus_access</seg>
+      </bo>
+      <position y="110.0"/>
+    </element>
+    <element uuid="784342ae-0593-45c2-b77b-a3d668c476c8" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>done</seg>
+      </bo>
+      <position y="10.0"/>
+    </element>
+    <element uuid="788b405d-a6cd-49dc-925e-863c9248ac92" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>print_ticket</seg>
+      </bo>
+      <position y="60.0"/>
+    </element>
+    <bo>
+      <seg>org.osate.ge.diagrams.instance</seg>
+      <seg>system_instance</seg>
+      <seg>/ticketmachine/instances/ticket_machine_system_ticketprinter_impl_instance.aaxl2</seg>
+    </bo>
+    <position/>
+    <size width="381.33203125" height="160.0"/>
+  </element>
   <config type="structure" connectionPrimaryLabelsVisible="false">
     <enabledAadlProperties/>
     <context>

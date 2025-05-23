@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="ASCII"?>
 <diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="eb5569c1-9fa3-4f83-a447-920c344daf70" manual="true">
+    <element uuid="ff7d756d-082a-44a1-87ab-2c10952aadb7" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>accept_cash</seg>
+      </bo>
+      <position y="90.0"/>
+    </element>
+    <element uuid="6ccc9707-1502-46f9-8490-a06b19f448b9" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>cash_accepted</seg>
+      </bo>
+      <position y="180.0"/>
+    </element>
+    <element uuid="9fab811f-40c5-4f56-96c9-aefa5beb5d60" manual="true" dockArea="right">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>print_ticket</seg>
+      </bo>
+      <position x="354.55340576171875" y="100.0"/>
+    </element>
+    <element uuid="09669118-bdfa-46ce-89cd-6c7d2f0221f1" manual="true" dockArea="right">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>ticket_dispensed</seg>
+      </bo>
+      <position x="319.70314025878906" y="150.0"/>
+    </element>
+    <element uuid="b945990b-1344-4373-85ee-6196e20a2ab1" manual="true" dockArea="right">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>ticket_printed</seg>
+      </bo>
+      <position x="339.72267150878906" y="50.0"/>
+    </element>
+    <element uuid="a53cef0a-3d99-4b25-bd7e-4e1d5bd9125f" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>ticket_request</seg>
+      </bo>
+      <position y="135.0"/>
+    </element>
+    <bo>
+      <seg>org.osate.ge.diagrams.instance</seg>
+      <seg>system_instance</seg>
+      <seg>/ticketmachine/instances/ticket_machine_system_vendticket_impl_instance.aaxl2</seg>
+    </bo>
+    <position x="220.0" y="140.0"/>
+    <size width="431.02606201171875" height="310.0"/>
+  </element>
   <config type="structure" connectionPrimaryLabelsVisible="false">
     <enabledAadlProperties/>
     <context>

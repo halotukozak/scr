@@ -1,0 +1,6 @@
+Check connection binding consistency Report
+
+Warning! this_printer.done -> this_controller.this_thread_vend_ticket.ticket_printed: Connection source and/or destination is not bound to hardware
+Warning! this_cash_acceptor.done -> this_controller.this_thread_vend_ticket.cash_accepted: Connection source and/or destination is not bound to hardware
+Warning! this_controller.this_thread_vend_ticket.print_ticket -> this_printer.print_ticket: Connection source and/or destination is not bound to hardware
+Warning! this_controller.this_thread_vend_ticket.accept_cash -> this_cash_acceptor.accept_cash: Connection source and/or destination is not bound to hardware

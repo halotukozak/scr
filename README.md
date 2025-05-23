@@ -21,7 +21,7 @@ Sprawozdanie z projektu AADL: Automat Biletowy
 4. Spis komponentów AADL z komentarzem
 
    | Komponent                  | Typ       | Opis                                                              |
-            |----------------------------|-----------|-------------------------------------------------------------------|
+                                             |----------------------------|-----------|-------------------------------------------------------------------|
    | TicketVendingMachineSystem | system    | Główny system automatu biletowego                                 |
    | TicketStockSensor          | device    | Sensor poziomu biletów                                            |
    | CashLevelSensor            | device    | Sensor poziomu gotówki                                            |
@@ -47,9 +47,30 @@ Sprawozdanie z projektu AADL: Automat Biletowy
       ![](diagrams/ticketVendingController.png)
     - VendTicket
       ![](diagrams/ticketVend.png)
+    - Controller
+      ![](diagrams/controller.png)
 
 6. Analizy modelu i wyniki
 
-   Check Binding Constraints - OK
+   Do analizy modelu AADL wykorzystano środowisko OSATE, które oferuje szereg narzędzi wspierających weryfikację
+   poprawności oraz ocenę właściwości systemu. Wśród dostępnych metod analizy znajdują się m.in.:
 
-[//]: # (TODO)
+    - [] Sprawdzenie poprawności modelu (Check Model):
+      Narzędzie pozwala wykryć błędy składniowe oraz niespójności w definicji komponentów i połączeń.
+
+    - [] Generowanie modelu instancyjnego (Instance Model Generation):
+      Pozwala na wygenerowanie instancji systemu na podstawie modelu deklaratywnego, co umożliwia dalsze analizy.
+
+    - [] Analiza połączeń (Connection Analysis):
+      Umożliwia sprawdzenie poprawności połączeń portów oraz zgodności kierunków komunikacji.
+
+    - [] Analiza zasobów (Resource Budget Analysis):
+      Pozwala ocenić zużycie zasobów sprzętowych, takich jak pamięć czy moc obliczeniowa procesora.
+
+    - [] Analiza czasowa (Timing Analysis):
+      Umożliwia ocenę, czy zadeklarowane czasy wykonywania, okresy i deadline’y są spełnione przez wątki i procesy.
+
+   Wstępnie przeprowadzono podstawowe analizy modelu, takie jak sprawdzenie poprawności składniowej oraz weryfikacja
+   połączeń portów. Analizy te nie wykazały poważniejszych problemów, jednak ze względu na trwające prace nad modelem
+   oraz jego rozbudowę, część wyników może być niepełna lub orientacyjna.
+   W przyszłości przewidziane jest rozszerzenie analiz o szczegółowe sprawdzenie wymagań czasowych oraz budżetu zasobów.

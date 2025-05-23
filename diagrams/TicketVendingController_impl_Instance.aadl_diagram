@@ -1,5 +1,161 @@
 <?xml version="1.0" encoding="ASCII"?>
 <diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="e8bcbec9-f53e-44d2-8da3-1ead591ce795" manual="true">
+    <element uuid="8ccf584a-9f19-405b-a3b1-fed2ff9bf672" manual="true">
+      <element uuid="6645a6fa-9828-480b-86ac-443196fc1b85" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>accept_cash</seg>
+        </bo>
+        <position x="328.61590576171875" y="10.0"/>
+      </element>
+      <element uuid="fdebd08c-8fc5-4b70-a855-09dc427765bd" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>cash_accepted</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <element uuid="6bcba6f5-16d8-4d50-a414-33a1ee376b53" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>print_ticket</seg>
+        </bo>
+        <position x="339.00653076171875" y="110.0"/>
+      </element>
+      <element uuid="0665b28c-5c56-4381-b419-ca84874e4b61" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>ticket_dispensed</seg>
+        </bo>
+        <position x="304.15626525878906" y="60.0"/>
+      </element>
+      <element uuid="739e8499-0b09-4165-ba95-507b35030f0f" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>ticket_printed</seg>
+        </bo>
+        <position y="110.0"/>
+      </element>
+      <element uuid="fee6312a-4705-47ea-b1df-581855798f0f" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>ticket_request</seg>
+        </bo>
+        <position y="60.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>this_thread_vend_ticket</seg>
+      </bo>
+      <position x="316.71095275878906" y="38.0"/>
+      <size width="415.47918701171875" height="160.0"/>
+    </element>
+    <element uuid="8dde2602-7cf2-413a-83f5-d2b0961086c3" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>accept_cash_connection : TicketVendingController_impl_Instance.this_thread_vend_ticket.accept_cash -> TicketVendingController_impl_Instance.accept_cash</seg>
+      </bo>
+    </element>
+    <element uuid="f0f09b29-2296-4f35-8075-a01a880d349e" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>cash_accepted_connection : TicketVendingController_impl_Instance.cash_accepted -> TicketVendingController_impl_Instance.this_thread_vend_ticket.cash_accepted</seg>
+      </bo>
+    </element>
+    <element uuid="a01fde29-5879-4119-a9a5-f51632ccbd55" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>print_ticket_connection : TicketVendingController_impl_Instance.this_thread_vend_ticket.print_ticket -> TicketVendingController_impl_Instance.print_ticket</seg>
+      </bo>
+    </element>
+    <element uuid="43ebcb6a-8fc4-4cc3-8e66-f3982c3bf118" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>ticket_dispensed_connection : TicketVendingController_impl_Instance.this_thread_vend_ticket.ticket_dispensed -> TicketVendingController_impl_Instance.ticket_dispensed</seg>
+      </bo>
+    </element>
+    <element uuid="37a8b876-900a-470d-ad50-2edc03b291b3" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>ticket_printed_connection : TicketVendingController_impl_Instance.ticket_printed -> TicketVendingController_impl_Instance.this_thread_vend_ticket.ticket_printed</seg>
+      </bo>
+    </element>
+    <element uuid="6211980f-57ea-40f9-b078-5691cd6568e9" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>ticket_request_connection : TicketVendingController_impl_Instance.ticket_request -> TicketVendingController_impl_Instance.this_thread_vend_ticket.ticket_request</seg>
+      </bo>
+    </element>
+    <element uuid="15ea89bb-4d1f-49cc-85c8-e61e5465497d" manual="true" dockArea="right">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>accept_cash</seg>
+      </bo>
+      <position x="879.9726867675781" y="48.0"/>
+    </element>
+    <element uuid="8174fc4a-1932-443e-b808-b3755cf5a822" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>cash_accepted</seg>
+      </bo>
+      <position y="48.0"/>
+    </element>
+    <element uuid="bf54ccd6-fec3-4609-ba91-191f93ef60d9" manual="true" dockArea="right">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>print_ticket</seg>
+      </bo>
+      <position x="890.3633117675781" y="148.0"/>
+    </element>
+    <element uuid="f6b6a583-1850-403c-bcfe-e3b8815d7689" manual="true" dockArea="right">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>ticket_dispensed</seg>
+      </bo>
+      <position x="855.5130462646484" y="98.0"/>
+    </element>
+    <element uuid="0733cfcb-5029-434e-aef7-4239bf47fe2d" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>ticket_printed</seg>
+      </bo>
+      <position y="148.0"/>
+    </element>
+    <element uuid="63cb9880-03f3-42cb-8198-8400ab98cd52" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>ticket_request</seg>
+      </bo>
+      <position y="98.0"/>
+    </element>
+    <bo>
+      <seg>org.osate.ge.diagrams.instance</seg>
+      <seg>system_instance</seg>
+      <seg>/ticketmachine/instances/ticket_machine_system_ticketvendingcontroller_impl_instance.aaxl2</seg>
+    </bo>
+    <position/>
+    <size width="966.8359680175781" height="210.0"/>
+  </element>
   <config type="structure" connectionPrimaryLabelsVisible="false">
     <enabledAadlProperties/>
     <context>
