@@ -52,6 +52,29 @@
       </ownedPropertyAssociation>
       <feature xsi:type="aadl2:EventDataPort" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedEventDataPort.0"/>
     </featureInstance>
+    <componentInstance name="system_bus" category="bus">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.GrossWeight"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RealLiteral" value="0.075">
+            <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.0/@ownedLiteral.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthCapacity"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RealLiteral" value="10.0">
+            <unit href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.2"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.4/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <subcomponent xsi:type="aadl2:BusSubcomponent" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedBusSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:BusImplementation" href="../hardware.aadl#hardware.SerialBus.impl"/>
+    </componentInstance>
     <componentInstance name="this_printer" category="device">
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.GrossWeight"/>
@@ -173,8 +196,84 @@
       <index>0</index>
       <classifier xsi:type="aadl2:DeviceImplementation" href="../ticket_machine_system.aadl#ticket_machine_system.CashAcceptor.impl"/>
     </componentInstance>
+    <componentInstance name="status_screen" category="device">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.GrossWeight"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RealLiteral" value="0.2">
+            <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.0/@ownedLiteral.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Thread_Properties.aadl#Thread_Properties.Dispatch_Protocol"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.3/@ownedLiteral.2"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="ticket_dispensed" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedEventPort.0"/>
+      </featureInstance>
+      <featureInstance name="ticket_stock_low" category="eventPort">
+        <feature xsi:type="aadl2:EventPort" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedEventPort.1"/>
+      </featureInstance>
+      <featureInstance name="bus_access" category="busAccess" type="/2">
+        <feature xsi:type="aadl2:BusAccess" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.12/@ownedBusAccess.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:DeviceSubcomponent" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedDeviceSubcomponent.2"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:DeviceImplementation" href="../ticket_machine_system.aadl#ticket_machine_system.Screen.impl"/>
+    </componentInstance>
+    <componentInstance name="system_ram" category="memory">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.GrossWeight"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RealLiteral" value="0.025">
+            <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.0/@ownedLiteral.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="bus_access" category="busAccess" type="/2">
+        <feature xsi:type="aadl2:BusAccess" href="../hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.2/@ownedBusAccess.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:MemorySubcomponent" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedMemorySubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:MemoryImplementation" href="../hardware.aadl#hardware.Ram.impl"/>
+    </componentInstance>
     <componentInstance name="this_controller" category="process">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Processor_Binding"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.6"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Memory_Binding"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.4"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
       <featureInstance name="ticket_request" category="eventDataPort" type="/4">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Memory_Binding"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.4"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Enumerators"/>
           <ownedValue>
@@ -212,6 +311,15 @@
       </featureInstance>
       <featureInstance name="print_ticket" category="eventDataPort" direction="out" type="/1">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Memory_Binding"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.4"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
           <ownedValue>
             <ownedValue xsi:type="aadl2:ListValue">
@@ -234,6 +342,15 @@
         <feature xsi:type="aadl2:EventDataPort" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.16/@ownedEventDataPort.1"/>
       </featureInstance>
       <featureInstance name="accept_cash" category="eventDataPort" direction="out" type="/3">
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Memory_Binding"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.4"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
           <ownedValue>
@@ -284,6 +401,24 @@
       </featureInstance>
       <componentInstance name="this_thread_vend_ticket" category="thread">
         <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Processor_Binding"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.6"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.0"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+          <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Memory_Binding"/>
+          <ownedValue>
+            <ownedValue xsi:type="aadl2:ListValue">
+              <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.4"/>
+            </ownedValue>
+          </ownedValue>
+          <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.1"/>
+        </ownedPropertyAssociation>
+        <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
           <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Timing_Properties.aadl#Timing_Properties.Dispatch_Offset"/>
           <ownedValue>
             <ownedValue xsi:type="aadl2:IntegerLiteral" value="2">
@@ -326,6 +461,15 @@
         </ownedPropertyAssociation>
         <featureInstance name="ticket_request" category="eventDataPort" type="/4">
           <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Memory_Binding"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:ListValue">
+                <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.1"/>
+          </ownedPropertyAssociation>
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
             <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Enumerators"/>
             <ownedValue>
               <ownedValue xsi:type="aadl2:ListValue">
@@ -362,6 +506,15 @@
         </featureInstance>
         <featureInstance name="print_ticket" category="eventDataPort" direction="out" type="/1">
           <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Memory_Binding"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:ListValue">
+                <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.1"/>
+          </ownedPropertyAssociation>
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
             <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
             <ownedValue>
               <ownedValue xsi:type="aadl2:ListValue">
@@ -384,6 +537,15 @@
           <feature xsi:type="aadl2:EventDataPort" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.18/@ownedEventDataPort.1"/>
         </featureInstance>
         <featureInstance name="accept_cash" category="eventDataPort" direction="out" type="/3">
+          <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+            <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Memory_Binding"/>
+            <ownedValue>
+              <ownedValue xsi:type="aadl2:ListValue">
+                <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.4"/>
+              </ownedValue>
+            </ownedValue>
+            <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPropertyAssociation.1"/>
+          </ownedPropertyAssociation>
           <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
             <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
             <ownedValue>
@@ -440,61 +602,138 @@
       <index>0</index>
       <classifier xsi:type="aadl2:ProcessImplementation" href="../ticket_machine_system.aadl#ticket_machine_system.TicketVendingController.impl"/>
     </componentInstance>
-    <connectionInstance name="this_bus -> this_printer.bus_access" kind="accessConnection" destination="/0/@componentInstance.0/@featureInstance.2" source="/0/@featureInstance.0">
-      <connectionReference context="/0" source="/0/@featureInstance.0" destination="/0/@componentInstance.0/@featureInstance.2">
-        <connection xsi:type="aadl2:AccessConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedAccessConnection.0"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="this_bus -> this_cash_acceptor.bus_access" kind="accessConnection" destination="/0/@componentInstance.1/@featureInstance.2" source="/0/@featureInstance.0">
-      <connectionReference context="/0" source="/0/@featureInstance.0" destination="/0/@componentInstance.1/@featureInstance.2">
-        <connection xsi:type="aadl2:AccessConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedAccessConnection.1"/>
-      </connectionReference>
-    </connectionInstance>
-    <connectionInstance name="ticket_request -> this_controller.this_thread_vend_ticket.ticket_request" kind="portConnection" destination="/0/@componentInstance.2/@componentInstance.0/@featureInstance.0" source="/0/@featureInstance.2">
-      <connectionReference context="/0" source="/0/@featureInstance.2" destination="/0/@componentInstance.2/@featureInstance.0">
+    <componentInstance name="main_cpu" category="processor">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.GrossWeight"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RealLiteral" value="0.1">
+            <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.0/@ownedLiteral.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.1"/>
+      </ownedPropertyAssociation>
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.MIPSCapacity"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:RealLiteral" value="2200.0">
+            <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.4/@ownedLiteral.1"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <featureInstance name="bus_access" category="busAccess" type="/2">
+        <feature xsi:type="aadl2:BusAccess" href="../hardware.aadl#/0/@ownedPublicSection/@ownedClassifier.0/@ownedBusAccess.0"/>
+      </featureInstance>
+      <subcomponent xsi:type="aadl2:ProcessorSubcomponent" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedProcessorSubcomponent.0"/>
+      <index>0</index>
+      <classifier xsi:type="aadl2:ProcessorImplementation" href="../hardware.aadl#hardware.MainProcessor.impl"/>
+    </componentInstance>
+    <connectionInstance name="ticket_request -> this_controller.this_thread_vend_ticket.ticket_request" kind="portConnection" destination="/0/@componentInstance.5/@componentInstance.0/@featureInstance.0" source="/0/@featureInstance.2">
+      <connectionReference context="/0" source="/0/@featureInstance.2" destination="/0/@componentInstance.5/@featureInstance.0">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.4"/>
       </connectionReference>
-      <connectionReference context="/0/@componentInstance.2" source="/0/@componentInstance.2/@featureInstance.0" destination="/0/@componentInstance.2/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="/0/@componentInstance.5" source="/0/@componentInstance.5/@featureInstance.0" destination="/0/@componentInstance.5/@componentInstance.0/@featureInstance.0">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPortConnection.0"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="this_printer.done -> this_controller.this_thread_vend_ticket.ticket_printed" complete="true" kind="portConnection" destination="/0/@componentInstance.2/@componentInstance.0/@featureInstance.3" source="/0/@componentInstance.0/@featureInstance.1">
-      <connectionReference context="/0" source="/0/@componentInstance.0/@featureInstance.1" destination="/0/@componentInstance.2/@featureInstance.3">
+    <connectionInstance name="system_bus -> this_printer.bus_access" complete="true" kind="accessConnection" destination="/0/@componentInstance.1/@featureInstance.2" source="/0/@componentInstance.0">
+      <connectionReference context="/0" source="/0/@componentInstance.0" destination="/0/@componentInstance.1/@featureInstance.2">
+        <connection xsi:type="aadl2:AccessConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedAccessConnection.0"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="system_bus -> this_cash_acceptor.bus_access" complete="true" kind="accessConnection" destination="/0/@componentInstance.2/@featureInstance.2" source="/0/@componentInstance.0">
+      <connectionReference context="/0" source="/0/@componentInstance.0" destination="/0/@componentInstance.2/@featureInstance.2">
+        <connection xsi:type="aadl2:AccessConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedAccessConnection.1"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="system_bus -> status_screen.bus_access" complete="true" kind="accessConnection" destination="/0/@componentInstance.3/@featureInstance.2" source="/0/@componentInstance.0">
+      <connectionReference context="/0" source="/0/@componentInstance.0" destination="/0/@componentInstance.3/@featureInstance.2">
+        <connection xsi:type="aadl2:AccessConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedAccessConnection.2"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="system_bus -> main_cpu.bus_access" complete="true" kind="accessConnection" destination="/0/@componentInstance.6/@featureInstance.0" source="/0/@componentInstance.0">
+      <connectionReference context="/0" source="/0/@componentInstance.0" destination="/0/@componentInstance.6/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedAccessConnection.3"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="system_bus -> system_ram.bus_access" complete="true" kind="accessConnection" destination="/0/@componentInstance.4/@featureInstance.0" source="/0/@componentInstance.0">
+      <connectionReference context="/0" source="/0/@componentInstance.0" destination="/0/@componentInstance.4/@featureInstance.0">
+        <connection xsi:type="aadl2:AccessConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedAccessConnection.4"/>
+      </connectionReference>
+    </connectionInstance>
+    <connectionInstance name="this_printer.done -> this_controller.this_thread_vend_ticket.ticket_printed" complete="true" kind="portConnection" destination="/0/@componentInstance.5/@componentInstance.0/@featureInstance.3" source="/0/@componentInstance.1/@featureInstance.1">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.1/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <connectionReference context="/0" source="/0/@componentInstance.1/@featureInstance.1" destination="/0/@componentInstance.5/@featureInstance.3">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.1"/>
       </connectionReference>
-      <connectionReference context="/0/@componentInstance.2" source="/0/@componentInstance.2/@featureInstance.3" destination="/0/@componentInstance.2/@componentInstance.0/@featureInstance.3">
+      <connectionReference context="/0/@componentInstance.5" source="/0/@componentInstance.5/@featureInstance.3" destination="/0/@componentInstance.5/@componentInstance.0/@featureInstance.3">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPortConnection.2"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="this_cash_acceptor.done -> this_controller.this_thread_vend_ticket.cash_accepted" complete="true" kind="portConnection" destination="/0/@componentInstance.2/@componentInstance.0/@featureInstance.4" source="/0/@componentInstance.1/@featureInstance.1">
-      <connectionReference context="/0" source="/0/@componentInstance.1/@featureInstance.1" destination="/0/@componentInstance.2/@featureInstance.4">
+    <connectionInstance name="this_cash_acceptor.done -> this_controller.this_thread_vend_ticket.cash_accepted" complete="true" kind="portConnection" destination="/0/@componentInstance.5/@componentInstance.0/@featureInstance.4" source="/0/@componentInstance.2/@featureInstance.1">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.3/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <connectionReference context="/0" source="/0/@componentInstance.2/@featureInstance.1" destination="/0/@componentInstance.5/@featureInstance.4">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.3"/>
       </connectionReference>
-      <connectionReference context="/0/@componentInstance.2" source="/0/@componentInstance.2/@featureInstance.4" destination="/0/@componentInstance.2/@componentInstance.0/@featureInstance.4">
+      <connectionReference context="/0/@componentInstance.5" source="/0/@componentInstance.5/@featureInstance.4" destination="/0/@componentInstance.5/@componentInstance.0/@featureInstance.4">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPortConnection.4"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="this_controller.this_thread_vend_ticket.print_ticket -> this_printer.print_ticket" complete="true" kind="portConnection" destination="/0/@componentInstance.0/@featureInstance.0" source="/0/@componentInstance.2/@componentInstance.0/@featureInstance.1">
-      <connectionReference context="/0/@componentInstance.2" source="/0/@componentInstance.2/@componentInstance.0/@featureInstance.1" destination="/0/@componentInstance.2/@featureInstance.1">
+    <connectionInstance name="this_controller.this_thread_vend_ticket.print_ticket -> this_printer.print_ticket" complete="true" kind="portConnection" destination="/0/@componentInstance.1/@featureInstance.0" source="/0/@componentInstance.5/@componentInstance.0/@featureInstance.1">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.0/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <connectionReference context="/0/@componentInstance.5" source="/0/@componentInstance.5/@componentInstance.0/@featureInstance.1" destination="/0/@componentInstance.5/@featureInstance.1">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPortConnection.1"/>
       </connectionReference>
-      <connectionReference context="/0" source="/0/@componentInstance.2/@featureInstance.1" destination="/0/@componentInstance.0/@featureInstance.0">
+      <connectionReference context="/0" source="/0/@componentInstance.5/@featureInstance.1" destination="/0/@componentInstance.1/@featureInstance.0">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.0"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="this_controller.this_thread_vend_ticket.accept_cash -> this_cash_acceptor.accept_cash" complete="true" kind="portConnection" destination="/0/@componentInstance.1/@featureInstance.0" source="/0/@componentInstance.2/@componentInstance.0/@featureInstance.2">
-      <connectionReference context="/0/@componentInstance.2" source="/0/@componentInstance.2/@componentInstance.0/@featureInstance.2" destination="/0/@componentInstance.2/@featureInstance.2">
+    <connectionInstance name="this_controller.this_thread_vend_ticket.accept_cash -> this_cash_acceptor.accept_cash" complete="true" kind="portConnection" destination="/0/@componentInstance.2/@featureInstance.0" source="/0/@componentInstance.5/@componentInstance.0/@featureInstance.2">
+      <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+        <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Deployment_Properties.aadl#Deployment_Properties.Actual_Connection_Binding"/>
+        <ownedValue>
+          <ownedValue xsi:type="aadl2:ListValue">
+            <ownedListElement xsi:type="instance:InstanceReferenceValue" referencedInstanceObject="/0/@componentInstance.0"/>
+          </ownedValue>
+        </ownedValue>
+        <propertyAssociation href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.2/@ownedPropertyAssociation.0"/>
+      </ownedPropertyAssociation>
+      <connectionReference context="/0/@componentInstance.5" source="/0/@componentInstance.5/@componentInstance.0/@featureInstance.2" destination="/0/@componentInstance.5/@featureInstance.2">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPortConnection.3"/>
       </connectionReference>
-      <connectionReference context="/0" source="/0/@componentInstance.2/@featureInstance.2" destination="/0/@componentInstance.1/@featureInstance.0">
+      <connectionReference context="/0" source="/0/@componentInstance.5/@featureInstance.2" destination="/0/@componentInstance.2/@featureInstance.0">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.2"/>
       </connectionReference>
     </connectionInstance>
-    <connectionInstance name="this_controller.this_thread_vend_ticket.ticket_dispensed -> ticket_dispensed" kind="portConnection" destination="/0/@featureInstance.1" source="/0/@componentInstance.2/@componentInstance.0/@featureInstance.5">
-      <connectionReference context="/0/@componentInstance.2" source="/0/@componentInstance.2/@componentInstance.0/@featureInstance.5" destination="/0/@componentInstance.2/@featureInstance.5">
+    <connectionInstance name="this_controller.this_thread_vend_ticket.ticket_dispensed -> ticket_dispensed" kind="portConnection" destination="/0/@featureInstance.1" source="/0/@componentInstance.5/@componentInstance.0/@featureInstance.5">
+      <connectionReference context="/0/@componentInstance.5" source="/0/@componentInstance.5/@componentInstance.0/@featureInstance.5" destination="/0/@componentInstance.5/@featureInstance.5">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.17/@ownedPortConnection.5"/>
       </connectionReference>
-      <connectionReference context="/0" source="/0/@componentInstance.2/@featureInstance.5" destination="/0/@featureInstance.1">
+      <connectionReference context="/0" source="/0/@componentInstance.5/@featureInstance.5" destination="/0/@featureInstance.1">
         <connection xsi:type="aadl2:PortConnection" href="../ticket_machine_system.aadl#/0/@ownedPublicSection/@ownedClassifier.15/@ownedPortConnection.5"/>
       </connectionReference>
     </connectionInstance>

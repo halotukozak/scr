@@ -140,17 +140,33 @@ system implementation TicketVendingSystem.impl
     system_bus: bus hardware::SerialBus.impl;
     status_screen: device Screen.impl;
 
-connections
-  printer_connection_request: port this_controller.print_ticket -> this_printer.print_ticket;
-  printer_connection_done: port this_printer.done -> this_controller.ticket_printed;
-  cash_acceptor_connection_request: port this_controller.accept_cash -> this_cash_acceptor.accept_cash;
-  cash_acceptor_connection_done: port this_cash_acceptor.done -> this_controller.cash_accepted;
-  ticket_request_connection: port ticket_request -> this_controller.ticket_request;
-  ticket_dispensed_connection: port this_controller.ticket_dispensed -> ticket_dispensed;
+  connections
+    printer_connection_request: port this_controller.print_ticket -> this_printer.print_ticket
+      {Actual_Connection_Binding => (reference(system_bus));};
+    printer_connection_done: port this_printer.done -> this_controller.ticket_printed
+      {Actual_Connection_Binding => (reference(system_bus));};
+    cash_acceptor_connection_request: port this_controller.accept_cash -> this_cash_acceptor.accept_cash
+      {Actual_Connection_Binding => (reference(system_bus));};
+    cash_acceptor_connection_done: port this_cash_acceptor.done -> this_controller.cash_accepted
+      {Actual_Connection_Binding => (reference(system_bus));};
+    
+    ticket_request_connection: port ticket_request -> this_controller.ticket_request;
+    ticket_dispensed_connection: port this_controller.ticket_dispensed -> ticket_dispensed;
 
-  bus_printer: bus access this_bus -> this_printer.bus_access;
-  bus_cash_acceptor: bus access this_bus -> this_cash_acceptor.bus_access;
+    -- Bus access connections
+    bus_printer: bus access system_bus -> this_printer.bus_access;
+    bus_cash_acceptor: bus access system_bus -> this_cash_acceptor.bus_access;
+    bus_screen: bus access system_bus -> status_screen.bus_access;
+    bus_cpu: bus access system_bus -> main_cpu.bus_access;
+    bus_ram: bus access system_bus -> system_ram.bus_access;
+
+  properties
+    -- Processor bindings for software components
+    Actual_Processor_Binding => (reference(main_cpu)) applies to this_controller;
+    -- Memory bindings
+    Actual_Memory_Binding => (reference(system_ram)) applies to this_controller;
 end TicketVendingSystem.impl;
+
 
 process TicketVendingController
 features
@@ -163,16 +179,18 @@ features
 end TicketVendingController;
 
 process implementation TicketVendingController.impl
-	subcomponents
-  this_thread_vend_ticket: thread VendTicket.impl;
-connections
-  ticket_request_connection: port ticket_request -> this_thread_vend_ticket.ticket_request;
-  print_ticket_connection: port this_thread_vend_ticket.print_ticket -> print_ticket;
-  ticket_printed_connection: port ticket_printed -> this_thread_vend_ticket.ticket_printed;
-  accept_cash_connection: port this_thread_vend_ticket.accept_cash -> accept_cash;
-  cash_accepted_connection: port cash_accepted -> this_thread_vend_ticket.cash_accepted;
-  ticket_dispensed_connection: port this_thread_vend_ticket.ticket_dispensed -> ticket_dispensed;
+  subcomponents
+    this_thread_vend_ticket: thread VendTicket.impl;
+
+  connections
+    ticket_request_connection: port ticket_request -> this_thread_vend_ticket.ticket_request;
+    print_ticket_connection: port this_thread_vend_ticket.print_ticket -> print_ticket;
+    ticket_printed_connection: port ticket_printed -> this_thread_vend_ticket.ticket_printed;
+    accept_cash_connection: port this_thread_vend_ticket.accept_cash -> accept_cash;
+    cash_accepted_connection: port cash_accepted -> this_thread_vend_ticket.cash_accepted;
+    ticket_dispensed_connection: port this_thread_vend_ticket.ticket_dispensed -> ticket_dispensed;
 end TicketVendingController.impl;
+
 
 thread VendTicket
 features
@@ -192,6 +210,7 @@ end VendTicket;
 thread implementation VendTicket.impl
 end VendTicket.impl;
 
+
 device TicketPrinter
 features
   print_ticket: in event data port custom_types::TicketInfo;
@@ -204,7 +223,6 @@ end TicketPrinter;
 
 device implementation TicketPrinter.impl
 end TicketPrinter.impl;
-
 device CashAcceptor
 features
   accept_cash: in event data port custom_types::CashAmount;
@@ -214,6 +232,7 @@ features
     SEI::GrossWeight => 1.0kg;
     Dispatch_Protocol => Aperiodic;
 end CashAcceptor;
+
 
 device implementation CashAcceptor.impl
 end CashAcceptor.impl;
