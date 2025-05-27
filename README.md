@@ -39,16 +39,7 @@ Sprawozdanie z projektu AADL: Automat Biletowy
    przez porty danych i zdarzeń. System korzysta z jednej magistrali komunikacyjnej i centralnego procesora.
 
 5. Modele
-    - TicketVendingSystem
-      ![](diagrams/ticketVendingSystem.png)
-    - TicketPrinter
-      ![](diagrams/ticketPrinter.png)
-    - TicketVendingController
-      ![](diagrams/ticketVendingController.png)
-    - VendTicket
-      ![](diagrams/ticketVend.png)
-    - Controller
-      ![](diagrams/controller.png)
+   ![](ticketVendingSystem.png)
 
 6. Analizy modelu i wyniki
 
@@ -64,7 +55,7 @@ Sprawozdanie z projektu AADL: Automat Biletowy
    ```
     - Sprawdzono poprawność składniową modelu za pomocą "binding consistency analysis" oraz "binding constraints", które
       nie wykazała błędów.
-      ![img.png](result.png)
+      ![](result.png)
 
    Wstępnie przeprowadzono podstawowe analizy modelu, takie jak sprawdzenie poprawności składniowej oraz weryfikacja
    połączeń portów. Analizy te nie wykazały poważniejszych problemów, jednak ze względu na trwające prace nad modelem
