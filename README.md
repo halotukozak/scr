@@ -21,7 +21,7 @@ Sprawozdanie z projektu AADL: Automat Biletowy
 4. Spis komponentów AADL z komentarzem
 
    | Komponent                  | Typ       | Opis                                                              |
-   | -------------------------- | --------- | ----------------------------------------------------------------- |
+         | -------------------------- | --------- | ----------------------------------------------------------------- |
    | TicketVendingMachineSystem | system    | Główny system automatu biletowego                                 |
    | TicketStockSensor          | device    | Sensor poziomu biletów                                            |
    | CashLevelSensor            | device    | Sensor poziomu gotówki                                            |
@@ -62,3 +62,10 @@ Sprawozdanie z projektu AADL: Automat Biletowy
    oraz jego rozbudowę, część wyników może być niepełna lub orientacyjna.
    W przyszłości przewidziane jest rozszerzenie analiz o szczegółowe sprawdzenie wymagań czasowych oraz budżetu
    zasobów.
+
+7. Użyte źródła
+    - Dokumentacja AADL:
+        - https://web.archive.org/web/20241118215357/http://www.openaadl.org/downloads/tutorial_models15/part1_introducing_aadl.pdf
+    - Przykłady modeli AADL:
+        - https://github.com/osate/examples/blob/master/core-examples/physical-modeling/bus.aadl
+        - https://github.com/osate/examples/blob/master/core-examples/feature-array/featurearray.aadl
