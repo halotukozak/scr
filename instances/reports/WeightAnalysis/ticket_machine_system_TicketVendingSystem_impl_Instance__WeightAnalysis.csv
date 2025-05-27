@@ -1,0 +1,5 @@
+Weight totals Report
+
+this_printer: [L] Sum of weights / gross weight is 1.000 kg (no limit specified)
+this_cash_acceptor: [L] Sum of weights / gross weight is 1.000 kg (no limit specified)
+TicketVendingSystem_impl_Instance: [A] Sum of weights (2.000 kg) is below weight limit of 3.000 kg (33.3 % Weight slack)

@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="ASCII"?>
 <diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="b41a50a6-830d-4cc6-8898-0e6366a0db4a" manual="true">
+    <element uuid="c6df1ee0-41b7-4775-a73f-1dff2bf913e0" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>bus_access</seg>
+      </bo>
+      <position y="60.0"/>
+    </element>
+    <element uuid="a20b4739-d818-45da-b5a8-f648578e3e8b" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>level</seg>
+      </bo>
+      <position y="10.0"/>
+    </element>
+    <bo>
+      <seg>org.osate.ge.diagrams.instance</seg>
+      <seg>system_instance</seg>
+      <seg>/ticketmachine/instances/main_system_ticketstocksensor_impl_instance.aaxl2</seg>
+    </bo>
+    <position/>
+    <size width="417.6536102294922" height="110.0"/>
+  </element>
   <config type="structure" connectionPrimaryLabelsVisible="false">
     <enabledAadlProperties/>
     <context>

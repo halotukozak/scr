@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="ASCII"?>
 <diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="4a018442-7787-4e23-bce3-e0b171ec1ce4" manual="true">
+    <element uuid="8946302a-2a08-4e6f-89bf-5dadbbf508a2" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>bus_access</seg>
+      </bo>
+      <position y="60.0"/>
+    </element>
+    <element uuid="4dd1e0a2-3957-42e3-a5e7-72a78b75c657" manual="true" dockArea="left">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>feature_instance</seg>
+        <seg>level</seg>
+      </bo>
+      <position y="10.0"/>
+    </element>
+    <bo>
+      <seg>org.osate.ge.diagrams.instance</seg>
+      <seg>system_instance</seg>
+      <seg>/ticketmachine/instances/main_system_cashlevelsensor_impl_instance.aaxl2</seg>
+    </bo>
+    <position/>
+    <size width="411.74867248535156" height="110.0"/>
+  </element>
   <config type="structure" connectionPrimaryLabelsVisible="false">
     <enabledAadlProperties/>
     <context>

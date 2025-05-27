@@ -53,23 +53,15 @@ Sprawozdanie z projektu AADL: Automat Biletowy
 6. Analizy modelu i wyniki
 
    Do analizy modelu AADL wykorzystano środowisko OSATE, które oferuje szereg narzędzi wspierających weryfikację
-   poprawności oraz ocenę właściwości systemu. Wśród dostępnych metod analizy znajdują się m.in.:
-
-    - [] Sprawdzenie poprawności modelu (Check Model):
-      Narzędzie pozwala wykryć błędy składniowe oraz niespójności w definicji komponentów i połączeń.
-
-    - [] Generowanie modelu instancyjnego (Instance Model Generation):
-      Pozwala na wygenerowanie instancji systemu na podstawie modelu deklaratywnego, co umożliwia dalsze analizy.
-
-    - [] Analiza połączeń (Connection Analysis):
-      Umożliwia sprawdzenie poprawności połączeń portów oraz zgodności kierunków komunikacji.
-
-    - [] Analiza zasobów (Resource Budget Analysis):
-      Pozwala ocenić zużycie zasobów sprzętowych, takich jak pamięć czy moc obliczeniowa procesora.
-
-    - [] Analiza czasowa (Timing Analysis):
-      Umożliwia ocenę, czy zadeklarowane czasy wykonywania, okresy i deadline’y są spełnione przez wątki i procesy.
-
+   poprawności oraz ocenę właściwości systemu.
+   Przeanalizowano model pod kątem wagi komponentów:
+   ```text
+   Weight totals Report
+   
+   this_printer: [L] Sum of weights / gross weight is 1.000 kg (no limit specified)
+   this_cash_acceptor: [L] Sum of weights / gross weight is 1.000 kg (no limit specified)
+   TicketVendingSystem_impl_Instance: [A] Sum of weights (2.000 kg) is below weight limit of 3.000 kg (33.3 % Weight slack)
+   ```
    Wstępnie przeprowadzono podstawowe analizy modelu, takie jak sprawdzenie poprawności składniowej oraz weryfikacja
    połączeń portów. Analizy te nie wykazały poważniejszych problemów, jednak ze względu na trwające prace nad modelem
    oraz jego rozbudowę, część wyników może być niepełna lub orientacyjna.
